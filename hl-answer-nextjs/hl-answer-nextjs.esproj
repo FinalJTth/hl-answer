@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.1738743">
+  <PropertyGroup>
+    <!--Command to run on project build-->
+    <BuildCommand>npm run build</BuildCommand>
+    <!--Command to run on project clean-->
+    <CleanCommand>
+    </CleanCommand>
+    <StartupCommand>npm run dev</StartupCommand>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\components\shared\NewFolder\" />
+  </ItemGroup>
+</Project>

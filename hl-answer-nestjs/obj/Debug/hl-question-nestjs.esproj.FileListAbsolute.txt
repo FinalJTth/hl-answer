@@ -1,0 +1,2 @@
+C:\Work\hlab\hl-question-nestjs\hl-question-nestjs\obj\Debug\hl-question-nestjs.esproj.CoreCompileInputs.cache
+C:\Work\hlab\hl-question\hl-question-nestjs\obj\Debug\hl-question-nestjs.esproj.CoreCompileInputs.cache
