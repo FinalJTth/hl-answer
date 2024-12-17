@@ -8,6 +8,7 @@
     <StartupCommand>npm run dev</StartupCommand>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\components\shared\NewFolder\" />
+    <None Remove="src\components\shared\NewFolder\**" />
+    <TypeScriptConfiguration Remove="src\components\shared\NewFolder\**" />
   </ItemGroup>
 </Project>

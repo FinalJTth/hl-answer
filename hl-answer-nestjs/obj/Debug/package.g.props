@@ -22,6 +22,9 @@
     <PackageJsonDependenciesNestjsCommon Condition="$(PackageJsonDependenciesNestjsCommon) == ''">^10.0.0</PackageJsonDependenciesNestjsCommon>
     <PackageJsonDependenciesNestjsCore Condition="$(PackageJsonDependenciesNestjsCore) == ''">^10.0.0</PackageJsonDependenciesNestjsCore>
     <PackageJsonDependenciesNestjsPlatformExpress Condition="$(PackageJsonDependenciesNestjsPlatformExpress) == ''">^10.0.0</PackageJsonDependenciesNestjsPlatformExpress>
+    <PackageJsonDependenciesPrismaClient Condition="$(PackageJsonDependenciesPrismaClient) == ''">^6.0.1</PackageJsonDependenciesPrismaClient>
+    <PackageJsonDependenciesClassTransformer Condition="$(PackageJsonDependenciesClassTransformer) == ''">^0.5.1</PackageJsonDependenciesClassTransformer>
+    <PackageJsonDependenciesClassValidator Condition="$(PackageJsonDependenciesClassValidator) == ''">^0.14.1</PackageJsonDependenciesClassValidator>
     <PackageJsonDependenciesReflectMetadata Condition="$(PackageJsonDependenciesReflectMetadata) == ''">^0.2.0</PackageJsonDependenciesReflectMetadata>
     <PackageJsonDependenciesRxjs Condition="$(PackageJsonDependenciesRxjs) == ''">^7.8.1</PackageJsonDependenciesRxjs>
     <PackageJsonDevdependenciesNestjsCli Condition="$(PackageJsonDevdependenciesNestjsCli) == ''">^10.0.0</PackageJsonDevdependenciesNestjsCli>
@@ -36,8 +39,10 @@
     <PackageJsonDevdependenciesEslint Condition="$(PackageJsonDevdependenciesEslint) == ''">^8.0.0</PackageJsonDevdependenciesEslint>
     <PackageJsonDevdependenciesEslintConfigPrettier Condition="$(PackageJsonDevdependenciesEslintConfigPrettier) == ''">^9.0.0</PackageJsonDevdependenciesEslintConfigPrettier>
     <PackageJsonDevdependenciesEslintPluginPrettier Condition="$(PackageJsonDevdependenciesEslintPluginPrettier) == ''">^5.0.0</PackageJsonDevdependenciesEslintPluginPrettier>
-    <PackageJsonDevdependenciesJest Condition="$(PackageJsonDevdependenciesJest) == ''">^29.5.0</PackageJsonDevdependenciesJest>
+    <PackageJsonDevdependenciesJest Condition="$(PackageJsonDevdependenciesJest) == ''">^29.7.0</PackageJsonDevdependenciesJest>
     <PackageJsonDevdependenciesPrettier Condition="$(PackageJsonDevdependenciesPrettier) == ''">^3.0.0</PackageJsonDevdependenciesPrettier>
+    <PackageJsonDevdependenciesPrettierEslint Condition="$(PackageJsonDevdependenciesPrettierEslint) == ''">^16.3.0</PackageJsonDevdependenciesPrettierEslint>
+    <PackageJsonDevdependenciesPrisma Condition="$(PackageJsonDevdependenciesPrisma) == ''">^6.0.1</PackageJsonDevdependenciesPrisma>
     <PackageJsonDevdependenciesSourceMapSupport Condition="$(PackageJsonDevdependenciesSourceMapSupport) == ''">^0.5.21</PackageJsonDevdependenciesSourceMapSupport>
     <PackageJsonDevdependenciesSupertest Condition="$(PackageJsonDevdependenciesSupertest) == ''">^7.0.0</PackageJsonDevdependenciesSupertest>
     <PackageJsonDevdependenciesTsJest Condition="$(PackageJsonDevdependenciesTsJest) == ''">^29.1.0</PackageJsonDevdependenciesTsJest>

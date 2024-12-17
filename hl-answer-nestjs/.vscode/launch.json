@@ -1,0 +1,51 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "localhost (Edge)",
+            "type": "edge",
+            "request": "launch",
+            "url": "http://localhost:4000",
+            "webRoot": "${workspaceFolder}/public"
+        },
+        {
+            "name": "localhost (Chrome)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:4000",
+            "webRoot": "${workspaceFolder}/public"
+        },
+      {
+        "name": "Debug node process (VS2022)",
+        "type": "node",
+        "request": "launch",
+        "cwd": "${workspaceFolder}",
+        "program": "${workspaceFolder}/",
+        "skipFiles": [ "<node_internals/**" ],
+        "stopOnEntry": true,
+        "console": "externalTerminal",
+        "env": {
+          "port": "4000"
+        },
+        "args": [ "" ]
+      },
+      {
+        "name": "Launch via npm (VSCode)",
+        "type": "node",
+        "request": "launch",
+        "cwd": "${workspaceFolder}",
+        "console": "externalTerminal",
+        "env": {
+          "port": "4000"
+        },
+        "runtimeExecutable": "npm",
+        "runtimeArgs": [ "run-script", "start:dev" ]
+      }
+    ],
+    "compounds": [
+        {
+            "name": "Launch Node and Browser",
+            "configurations": ["Debug node process", "localhost (Chrome)"]
+        }
+    ]
+}

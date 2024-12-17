@@ -3,11 +3,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>LaunchJsonDebugger</DebuggerFlavor>
     <LaunchJsonTarget>{
-  "name": "localhost (Edge)",
-  "type": "edge",
+  "name": "Launch via npm (VSCode)",
+  "type": "node",
   "request": "launch",
-  "url": "http://localhost:4000",
-  "webRoot": "C:\\Work\\hlab\\hl-question\\hl-question-nestjs/public"
+  "cwd": "F:\\Work\\HLab\\hl-answer\\hl-answer-nestjs",
+  "console": "externalTerminal",
+  "env": {
+    "port": "4000"
+  },
+  "runtimeExecutable": "npm",
+  "runtimeArgs": [
+    "run-script",
+    "start:dev"
+  ]
 }</LaunchJsonTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IsLinterEnabled>True</IsLinterEnabled>
   </PropertyGroup>
 </Project>
