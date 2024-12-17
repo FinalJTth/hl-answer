@@ -11,21 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DatabaseService = void 0;
 const common_1 = require("@nestjs/common");
+const config_1 = require("@nestjs/config");
 const client_1 = require("@prisma/client");
 let DatabaseService = class DatabaseService extends client_1.PrismaClient {
-    constructor() {
+    constructor(config) {
         super({
             datasources: {
                 db: {
-                    url: process.env.DATABASE_URL,
+                    url: config.get("DATABASE_URL"),
                 },
             },
         });
+        this.config = config;
     }
 };
 exports.DatabaseService = DatabaseService;
 exports.DatabaseService = DatabaseService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [config_1.ConfigService])
 ], DatabaseService);
 //# sourceMappingURL=database.service.js.map

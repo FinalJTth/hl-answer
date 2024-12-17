@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "localhost (Edge)",
+            "name": "localhost (Edge) (VS2022)",
             "type": "edge",
             "request": "launch",
             "url": "http://localhost:4000",
@@ -15,36 +15,36 @@
             "url": "http://localhost:4000",
             "webRoot": "${workspaceFolder}/public"
         },
-      {
-        "name": "Debug node process (VS2022)",
-        "type": "node",
-        "request": "launch",
-        "cwd": "${workspaceFolder}",
-        "program": "${workspaceFolder}/",
-        "skipFiles": [ "<node_internals/**" ],
-        "stopOnEntry": true,
-        "console": "externalTerminal",
-        "env": {
-          "port": "4000"
+        {
+            "name": "Debug node process (VS2022)",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/",
+            "skipFiles": ["<node_internals/**"],
+            "stopOnEntry": true,
+            "console": "externalTerminal",
+            "env": {
+                "port": "4000"
+            },
+            "args": [""]
         },
-        "args": [ "" ]
-      },
-      {
-        "name": "Launch via npm (VSCode)",
-        "type": "node",
-        "request": "launch",
-        "cwd": "${workspaceFolder}",
-        "console": "externalTerminal",
-        "env": {
-          "port": "4000"
-        },
-        "runtimeExecutable": "npm",
-        "runtimeArgs": [ "run-script", "start:dev" ]
-      }
+        {
+            "name": "Launch via npm (VSCode)",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "externalTerminal",
+            "env": {
+                "port": "4000"
+            },
+            "runtimeExecutable": "npm",
+            "runtimeArgs": ["run-script", "start:dev"]
+        }
     ],
     "compounds": [
         {
-            "name": "Launch Node and Browser",
+            "name": "Launch Node and Browser (VS2022)",
             "configurations": ["Debug node process", "localhost (Chrome)"]
         }
     ]

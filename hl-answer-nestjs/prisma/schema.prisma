@@ -20,3 +20,39 @@ model User {
 
     @@map("users")
 }
+
+model Product {
+    id Int @id @default(autoincrement())
+
+    originalLanguageId String
+    originalLanguage Language @relation(fields: [originalLanguageId], references: [id])
+
+    roductDetailTranslations ProductDetailTranslation[]
+
+    @@map("products")
+}
+
+model Language {
+    id String @id
+    languageName String
+
+    originalProducts Product[]
+    productDetailTranslations ProductDetailTranslation[]
+
+    @@map("languages")
+}
+
+model ProductDetailTranslation {
+    id Int @id @default(autoincrement())
+
+    name String
+    descripting String
+
+    languageId String
+    language Language @relation(fields: [languageId], references: [id])
+
+    ProductId Int
+    Product Product @relation(fields: [ProductId], references: [id])
+
+    @@map("productDetailTranslations")
+}

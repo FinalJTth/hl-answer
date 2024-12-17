@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "localhost (Edge)",
+      "name": "localhost (Edge) (VS2022)",
       "type": "edge",
       "request": "launch",
       "url": "http://localhost:3000",
@@ -33,10 +33,22 @@
         ""
       ]
     }
+    {
+      "name": "Launch via npm (VSCode)",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "externalTerminal",
+      "env": {
+        "port": "3000"
+      },
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [ "run-script", "dev" ]
+    }
   ],
   "compounds": [
     {
-      "name": "Launch Node and Browser",
+      "name": "Launch Node and Browser (VS2022)",
       "configurations": [
         "Debug node process",
         "localhost (Chrome)"

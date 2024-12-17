@@ -1,16 +1,7 @@
-import {
-    Body,
-    Delete,
-    ForbiddenException,
-    Get,
-    Injectable,
-    Param,
-    Patch,
-    Post,
-} from "@nestjs/common";
-import { UserDTO } from "./dto";
+import { ForbiddenException, Injectable } from "@nestjs/common";
+import { UserDTO } from "../dto";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
-import { DatabaseService } from "../database/database.service";
+import { DatabaseService } from "../../database/services/database.service";
 
 @Injectable()
 export class UserService {
@@ -23,13 +14,24 @@ export class UserService {
     }
 
     async find(id: number) {
-        const user = await this.databaseService.user.findUniqueOrThrow({
-            where: {
-                id: id,
-            },
-        });
+        try {
+            const user = await this.databaseService.user.findUniqueOrThrow({
+                where: {
+                    id: id,
+                },
+            });
 
-        return user;
+            return user;
+        } catch (error) {
+            if (error instanceof PrismaClientKnownRequestError) {
+                // P2025 : An operation failed because it depends on one or more records that were required but not found. {cause}
+                if (error.code === "P2025") {
+                    throw new ForbiddenException("User doesn't exist");
+                }
+            }
+
+            throw error;
+        }
     }
 
     async create(dto: UserDTO) {
@@ -44,7 +46,7 @@ export class UserService {
             return user;
         } catch (error) {
             if (error instanceof PrismaClientKnownRequestError) {
-                // P2002 : Field has duplicated value
+                // P2002 : Unique constraint failed on the {constraint}
                 if (error.code === "P2002") {
                     throw new ForbiddenException("Email taken");
                 }

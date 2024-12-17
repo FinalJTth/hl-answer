@@ -22,12 +22,22 @@ let UserService = class UserService {
         return users;
     }
     async find(id) {
-        const user = await this.databaseService.user.findUniqueOrThrow({
-            where: {
-                id: id,
-            },
-        });
-        return user;
+        try {
+            const user = await this.databaseService.user.findUniqueOrThrow({
+                where: {
+                    id: id,
+                },
+            });
+            return user;
+        }
+        catch (error) {
+            if (error instanceof library_1.PrismaClientKnownRequestError) {
+                if (error.code === "P2025") {
+                    throw new common_1.ForbiddenException("User doesn't exist");
+                }
+            }
+            throw error;
+        }
     }
     async create(dto) {
         try {
