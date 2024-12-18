@@ -19,6 +19,7 @@
    5.1. Validator : ./src/product/dto
    5.2. Database : ./prisma/schema.prisma
    5.3. Testing Strategy : ./src/product/[controller, service]/product.[controller, service].spec.ts
+7. Swagger is available at [http://localhost:4000/api](http://localhost:4000/api) for example apis.
 
 ## If all is success
 
