@@ -52,8 +52,5 @@ build/config\.gypi
 pnpm-lock.yaml
 /.history
 
-# prisma
-/prisma
-
 # environment
 .env
