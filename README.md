@@ -20,6 +20,10 @@
    5.2. Database : ./prisma/schema.prisma
    5.3. Testing Strategy : ./src/product/[controller, service]/product.[controller, service].spec.ts
 
+## If all is success
+
+- Run ```npm run test``` to do all the Jest test that I've written for both framework
+
 ## If all else fail
 
 - I should have HTML file for my answer on the same directory as the solution file (root of this git)
