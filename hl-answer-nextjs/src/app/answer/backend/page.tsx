@@ -1,4 +1,6 @@
-﻿import { ReactElement } from "react";
+﻿"use client"
+
+import { ReactElement } from "react";
 import MainContainer from "../../../components/shared/MainContainer";
 import MultilingualProduct from "../../../components/answer/backend/MultilingualProductSchema";
 
@@ -110,7 +112,7 @@ export default function Backend(): ReactElement {
                     on our React.JS framework.
                 </span>
                 <h1 className="mb-4 mt-8 text-3xl font-bold leading-none tracking-tight dark:text-white">**Summary**</h1>
-                <span className="text-lg2">
+                <span className="text-lg">
                         To check for my answer on question 3<br />
                         Validator : ./src/product/dto<br />
                         Database : ./prisma/schema.prisma<br />

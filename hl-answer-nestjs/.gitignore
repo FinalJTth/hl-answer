@@ -53,7 +53,7 @@ pnpm-lock.yaml
 /.history
 
 # prisma
-/prisma/migrations
+/prisma
 
 # environment
 .env
