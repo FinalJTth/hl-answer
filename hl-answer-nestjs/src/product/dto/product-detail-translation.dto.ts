@@ -13,11 +13,11 @@ export class ProductDetailTranslationDTO {
 
     @Transform(({ value }) => ("" + value).toLowerCase())
     @IsEnum(LanguageCode)
-    language: LanguageCode;
+    languageId: LanguageCode;
 
-    constructor(name: string, description: string, language: LanguageCode) {
+    constructor(name: string, description: string, languageId: LanguageCode) {
         this.name = name;
         this.description = description;
-        this.language = language;
+        this.languageId = languageId;
     }
 }

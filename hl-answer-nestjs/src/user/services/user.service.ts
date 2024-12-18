@@ -1,4 +1,8 @@
-import { ForbiddenException, Injectable } from "@nestjs/common";
+import {
+    ForbiddenException,
+    Injectable,
+    NotFoundException,
+} from "@nestjs/common";
 import { UserDTO } from "../dto";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import { DatabaseService } from "../../database/services/database.service";
@@ -26,7 +30,7 @@ export class UserService {
             if (error instanceof PrismaClientKnownRequestError) {
                 // P2025 : An operation failed because it depends on one or more records that were required but not found. {cause}
                 if (error.code === "P2025") {
-                    throw new ForbiddenException("User doesn't exist");
+                    throw new NotFoundException("User doesn't exist");
                 }
             }
 
@@ -48,7 +52,7 @@ export class UserService {
             if (error instanceof PrismaClientKnownRequestError) {
                 // P2002 : Unique constraint failed on the {constraint}
                 if (error.code === "P2002") {
-                    throw new ForbiddenException("Email taken");
+                    throw new ForbiddenException("Email existed");
                 }
             }
 

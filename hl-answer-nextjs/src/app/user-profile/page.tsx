@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState, useEffect } from 'react';
 
 export interface UserProfileProps {
@@ -17,8 +19,7 @@ const UserProfile = ({ userId }: UserProfileProps) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await
-                    fetch(`https://api.example.com/users/${userId}`);
+                const response = await fetch(`https://localhost:4000/user/${userId}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch user data');
                 }

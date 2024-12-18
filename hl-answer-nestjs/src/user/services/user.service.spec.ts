@@ -2,7 +2,7 @@ import { Test, TestingModule } from "@nestjs/testing";
 import { UserService } from "./user.service";
 import { DatabaseService } from "../../database/services/database.service";
 import { UserDTO } from "../dto";
-import { ForbiddenException } from "@nestjs/common";
+import { ForbiddenException, NotFoundException } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 
 describe("UserService", () => {
@@ -72,7 +72,7 @@ describe("UserService", () => {
 
     // Find non-exist id
     it("User Validation Test : Find on non-exist id", async () => {
-        expect(service.find(1)).rejects.toThrow(ForbiddenException);
+        expect(service.find(1)).rejects.toThrow(NotFoundException);
     });
 
     // Create duplicate email
@@ -82,6 +82,8 @@ describe("UserService", () => {
         expect(service.create(testUserDTO1)).rejects.toThrow(
             ForbiddenException,
         );
+
+        await new Promise(process.nextTick);
 
         await service.remove(user.id);
     });

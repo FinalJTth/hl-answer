@@ -6,6 +6,7 @@
 
 generator client {
     provider = "prisma-client-js"
+    previewFeatures = ["fullTextSearchPostgres"]
 }
 
 datasource db {
@@ -27,7 +28,7 @@ model Product {
     originalLanguageId String
     originalLanguage Language @relation(fields: [originalLanguageId], references: [id])
 
-    roductDetailTranslations ProductDetailTranslation[]
+    productDetailTranslations ProductDetailTranslation[]
 
     @@map("products")
 }
@@ -46,13 +47,19 @@ model ProductDetailTranslation {
     id Int @id @default(autoincrement())
 
     name String
-    descripting String
+    description String
 
     languageId String
     language Language @relation(fields: [languageId], references: [id])
 
-    ProductId Int
-    Product Product @relation(fields: [ProductId], references: [id])
+    productId Int
+    product Product @relation(fields: [productId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+
+    textSearch  Unsupported("TSVECTOR")?
+
+    @@unique([languageId, productId])
+
+    @@index(textSearch)
 
     @@map("productDetailTranslations")
 }

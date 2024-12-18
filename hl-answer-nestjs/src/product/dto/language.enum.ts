@@ -1,8 +1,16 @@
 export enum LanguageCode {
-    ChinesePRC = "zh-cn",
-    ChineseTaiwan = "zh-tw",
-    EnglishStandard = "en",
-    FrenchStandard = "fr",
-    GermanStandard = "de",
-    ThaiStandard = "th",
+    English = "en",
+    French = "fr",
+    Italian = "it",
+    German = "de",
+    Spanish = "es",
+    Thai = "th",
 }
+
+export const SearchSupportedLanguageCode: Array<LanguageCode> = [
+    LanguageCode.English,
+    LanguageCode.French,
+    LanguageCode.Italian,
+    LanguageCode.German,
+    LanguageCode.Spanish,
+];

@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserService = void 0;
 const common_1 = require("@nestjs/common");
 const library_1 = require("@prisma/client/runtime/library");
-const database_service_1 = require("../database/database.service");
+const database_service_1 = require("../../database/services/database.service");
 let UserService = class UserService {
     constructor(databaseService) {
         this.databaseService = databaseService;
@@ -33,7 +33,7 @@ let UserService = class UserService {
         catch (error) {
             if (error instanceof library_1.PrismaClientKnownRequestError) {
                 if (error.code === "P2025") {
-                    throw new common_1.ForbiddenException("User doesn't exist");
+                    throw new common_1.NotFoundException("User doesn't exist");
                 }
             }
             throw error;
@@ -52,7 +52,7 @@ let UserService = class UserService {
         catch (error) {
             if (error instanceof library_1.PrismaClientKnownRequestError) {
                 if (error.code === "P2002") {
-                    throw new common_1.ForbiddenException("Email taken");
+                    throw new common_1.ForbiddenException("Email existed");
                 }
             }
             throw error;

@@ -2,33 +2,34 @@ import {
     ArrayMinSize,
     IsArray,
     IsEnum,
-    IsNumber,
+    IsInt,
     IsOptional,
     ValidateNested,
 } from "class-validator";
 import { ProductDetailTranslationDTO } from "./product-detail-translation.dto";
 import { LanguageCode } from "./language.enum";
-import { Transform } from "class-transformer";
+import { Transform, Type } from "class-transformer";
 
 export class ProductDTO {
     @IsOptional()
-    @IsNumber()
-    id: number;
+    @IsInt()
+    id?: number;
 
     @Transform(({ value }) => ("" + value).toLowerCase())
     @IsEnum(LanguageCode)
-    originalLanguage: LanguageCode;
+    originalLanguageId: LanguageCode;
 
     @IsArray()
     @ValidateNested({ each: true })
+    @Type(() => ProductDetailTranslationDTO)
     @ArrayMinSize(1)
     productDetailTranslations: Array<ProductDetailTranslationDTO>;
 
     constructor(
-        originalLanguage: LanguageCode,
+        originalLanguageId: LanguageCode,
         productDetailTranslations: Array<ProductDetailTranslationDTO>,
     ) {
-        this.originalLanguage = originalLanguage;
+        this.originalLanguageId = originalLanguageId;
         this.productDetailTranslations = productDetailTranslations;
     }
 }

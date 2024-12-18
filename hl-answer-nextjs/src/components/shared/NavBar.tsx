@@ -4,6 +4,7 @@ import { ReactElement } from 'react'
 const navigation = [
     { name: 'Backend', href: '/answer/backend' },
     { name: 'Frontend', href: '/answer/frontend' },
+    { name: 'UserProfile', href: '/user-profile' },
 ]
 
 export default function NavBar(): ReactElement {

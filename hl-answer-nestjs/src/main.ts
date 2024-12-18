@@ -9,6 +9,11 @@ async function bootstrap() {
             whitelist: true,
         }),
     );
+    app.useGlobalPipes(
+        new ValidationPipe({
+            transform: true,
+        }),
+    );
     app.setGlobalPrefix("api/v1");
     await app.listen(process.env.PORT ?? 4000);
 }
