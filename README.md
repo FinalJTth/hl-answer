@@ -15,9 +15,9 @@
 3. Open [http://localhost:4000](http://localhost:4000) with your browser to see the `hello world !` result.
 4. Run ```npm run db:dev:restart``` to deploy PostgreSQL with `docker compose up -d` including database migration by Prisma. Make sure *NOT* to manually migrate database.
 5. **Make sure you have `.env` file with this field `DATABASE_URL="postgresql://postgres:[**insert_password_here**]@localhost:5432/main?schema=public"` and  **change your password** accordingly in `docker-compose.yml`** If you have special character in the password, make sure to encode it in `UTF-8` format
-6. To check for my answer on question 3 for backend__
-   5.1. Validator : `./src/product/dto__`
-   5.2. Database : `./prisma/schema.prisma__`
+6. To check for my answer on question 3 for backend\
+   5.1. Validator : `./src/product/dto`\
+   5.2. Database : `./prisma/schema.prisma`\
    5.3. Testing Strategy : `./src/product/[controller, service]/product.[controller, service].spec.ts`
 7. Swagger is available at [http://localhost:4000/api](http://localhost:4000/api) for example apis.
 
